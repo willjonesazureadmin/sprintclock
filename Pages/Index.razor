@@ -1,0 +1,245 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.WebUtilities
+@inject NavigationManager NavManager
+<div class="container-fluid mx-auto bg-light">
+    <br />
+    <div class="row mt-2">
+        <div class="col-lg-3">
+            <div class="card bg-info text-white h-100">
+                <div class="card-header">Sprint @_currentSprint</div>
+                <div class="card-body">
+                    <h4> Start: @_sprintStartDate.ToShortDateString()</h4>
+                    <h4> End: @_sprintEndDate.ToShortDateString()</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card bg-danger text-white h-100">
+                <div class="card-header">Time Left in Sprint:</div>
+                <div class="card-body text-center">
+                    <h2 class="display-2">@string.Format("{0} : {1} : {2} : {3}",_sprintClock.Days,_sprintClock.Hours,
+                        _sprintClock.Minutes,
+                        _sprintClock.Seconds)</h2>
+                    <h2>Days : Hrs : Mins : Sec</h2>
+                </div>
+                <div class="card-footer">approx. @string.Format("{0:N0}",_workingHoursLeftInSprint) working hours remaining</div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card bg-info text-white h-100">
+                <div class="card-header">Project: @_projectName</div>
+                <div class="card-body">
+                    <h6>
+                        Project Start: @_projectStartDate.ToShortDateString()
+                    </h6>
+                    <h6>
+                        Project End: @_projectEndDate.ToShortDateString()
+                    </h6>
+                    <h6>
+                        Number of Sprints: @_numberOfSprints
+                    </h6>
+                    <h6>
+                        Sprint Length in Days: @_sprintLength
+                    </h6>
+                    <h6>
+                        Days Left: @_daysLeftInProject
+                    </h6>
+                </div>
+                <div class="card-footer">approx. @_workingDayLeftInProject working days remaining</div>
+            </div>
+        </div>
+    </div>
+    @if (showEdit == true)
+    {
+        <div class="row mt-2">
+            <div class="col-lg-10 mx-auto bg-light">
+                <form>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Project</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Project Name" @bind="_projectName">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Start Date</span>
+                        </div>
+                        <input type="date" class="form-control" placeholder="Start Date" @bind="_projectStartDate">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Sprints</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Number of Sprints" @bind="_numberOfSprints">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Sprint Length</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Sprint Length in Days" @bind="_sprintLength">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Working hours in day</span>
+                        </div>
+                        <input type="text" class="form-control" @bind="_workingHoursInDay">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Working days in week</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Sprint Length in Days"
+                        @bind="_workingDaysInWeek">
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-warning" @onclick="btnRecalculate">Recalculate</button>
+                        </div>
+                    </div>
+                </form>
+                <button type="button" class="btn btn-warning" @onclick="btnAdvanced">Advanced Options</button>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row mt-2">
+            <div class="col-md-1 bg-light mx-auto">
+                <button type="button" class="btn btn-primary btn-lg btn-block" @onclick="btnEdit">Edit</button>
+            </div>
+        </div>
+    }
+    @if (showAdvanced == true)
+    {
+        <div class="row mt-2">
+            <div class="col-lg-10 mx-auto bg-light">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Project</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Project Name">
+                        <input type="date" class="form-control" placeholder="Start Date">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Sprints</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Number of Sprints">
+                        <input type="text" class="form-control" placeholder="Sprint Length in Days">
+                        <div class="input-group-append">
+                            <button class="btn btn-success" type="submit">Ok</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+@code {
+
+    private string _projectName = "My Project";
+    private int _sprintLength = 7;
+    private int _numberOfSprints = 8;
+
+    private int _currentSprint;
+
+    private int _daysLeftInProject;
+    private int _workingDayLeftInProject;
+    private double _workingHoursLeftInSprint;
+    private int _workingHoursInDay = 8;
+
+    private int _workingDaysInWeek = 5;
+
+    private DateTime _projectStartDate;
+    private DateTime _projectEndDate;
+    private DateTime _sprintStartDate;
+    private DateTime _sprintEndDate;
+    private TimeSpan _sprintClock;
+
+
+
+    private bool showEdit;
+    private bool showAdvanced;
+
+
+    protected override void OnInitialized()
+    {
+        var uri = NavManager.ToAbsoluteUri(NavManager.Uri);
+        var queryStrings = QueryHelpers.ParseQuery(uri.Query);
+        if (queryStrings.TryGetValue("name", out var a))
+        {
+            _projectName = a;
+        }
+        else
+        {
+            _projectName = "My Project";
+        }
+        if (queryStrings.TryGetValue("sprintLength", out var b))
+        {
+            int.TryParse(b, out var valueOfInt);
+            _sprintLength = valueOfInt;
+        }
+        if (queryStrings.TryGetValue("numberofsprints", out var c))
+        {
+            int.TryParse(c, out var valueOfInt);
+            _numberOfSprints = valueOfInt;
+        }
+        if (queryStrings.TryGetValue("startdate", out var d))
+        {
+            DateTime.TryParse(d, out var valueOfDate);
+            _projectStartDate = valueOfDate;
+        }
+        else
+        {
+            _projectStartDate = DateTime.Today.AddDays(-14);
+        }
+
+
+        try
+        {
+            CalculateDates();
+            SprintClock();
+        }
+        catch
+        {
+
+        }
+    }
+
+    private void CalculateDates()
+    {
+        _currentSprint = (DateTime.Today.Subtract(_projectStartDate).Days / _sprintLength);
+        _sprintStartDate = _projectStartDate.AddDays(_currentSprint * _sprintLength);
+        _sprintEndDate = _sprintStartDate.AddDays(_sprintLength).AddTicks(-1);
+        _projectEndDate = _projectStartDate.AddDays(_sprintLength * _numberOfSprints);
+        _daysLeftInProject = (_projectEndDate - DateTime.Now).Days;
+        _workingDayLeftInProject = ((_projectEndDate - DateTime.Now).Days / 7) * _workingDaysInWeek;
+        _workingHoursLeftInSprint = ((((_sprintEndDate - DateTime.Now).TotalHours) / 24 ) * _workingHoursInDay);
+    }
+
+    private void btnEdit()
+    {
+        showEdit = true;
+        StateHasChanged();
+    }
+
+    private void btnRecalculate()
+    {
+        showEdit = false;
+        showAdvanced = false;
+        CalculateDates();
+    }
+
+
+    private void btnAdvanced()
+    {
+        showAdvanced = true;
+        StateHasChanged();
+    }
+
+    async Task SprintClock()
+    {
+        while (_sprintEndDate > DateTime.Now)
+        {
+            await Task.Delay(1000);
+
+            _sprintClock = (_sprintEndDate - DateTime.Now);
+            StateHasChanged();
+        }
+    }
+}
