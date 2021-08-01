@@ -8,6 +8,72 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
+        "HashCode": 630697031,
+        "Kind": "Components.Component",
+        "Name": "ticktocksprintclock.Pages.Index",
+        "AssemblyName": "ticktocksprintclock",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Index"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "ticktocksprintclock.Pages.Index"
+        }
+      },
+      {
+        "HashCode": -319357437,
+        "Kind": "Components.Component",
+        "Name": "ticktocksprintclock.Pages.Index",
+        "AssemblyName": "ticktocksprintclock",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ticktocksprintclock.Pages.Index"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "ticktocksprintclock.Pages.Index",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -446500754,
+        "Kind": "Components.Component",
+        "Name": "ticktocksprintclock.App",
+        "AssemblyName": "ticktocksprintclock",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "ticktocksprintclock.App"
+        }
+      },
+      {
+        "HashCode": 212529943,
+        "Kind": "Components.Component",
+        "Name": "ticktocksprintclock.App",
+        "AssemblyName": "ticktocksprintclock",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "ticktocksprintclock.App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "ticktocksprintclock.App",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": -1853710077,
         "Kind": "Components.Component",
         "Name": "ticktocksprintclock.Shared.MainLayout",
@@ -100,72 +166,6 @@
           "Runtime.Name": "Components.None",
           "Common.TypeName": "ticktocksprintclock.Shared.MainLayout.Body",
           "Components.IsSpecialKind": "Components.ChildContent",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 630697031,
-        "Kind": "Components.Component",
-        "Name": "ticktocksprintclock.Pages.Index",
-        "AssemblyName": "ticktocksprintclock",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Index"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ticktocksprintclock.Pages.Index"
-        }
-      },
-      {
-        "HashCode": -319357437,
-        "Kind": "Components.Component",
-        "Name": "ticktocksprintclock.Pages.Index",
-        "AssemblyName": "ticktocksprintclock",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ticktocksprintclock.Pages.Index"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ticktocksprintclock.Pages.Index",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -446500754,
-        "Kind": "Components.Component",
-        "Name": "ticktocksprintclock.App",
-        "AssemblyName": "ticktocksprintclock",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "App"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ticktocksprintclock.App"
-        }
-      },
-      {
-        "HashCode": 212529943,
-        "Kind": "Components.Component",
-        "Name": "ticktocksprintclock.App",
-        "AssemblyName": "ticktocksprintclock",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "ticktocksprintclock.App"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "ticktocksprintclock.App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
