@@ -234,6 +234,30 @@
           "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll": {}
         }
       },
+      "Microsoft.Extensions.Localization/5.0.8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Localization.Abstractions": "5.0.8",
+          "Microsoft.Extensions.Logging.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Options": "5.0.0"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.Extensions.Localization.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.Extensions.Localization.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Localization.Abstractions/5.0.8": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.Extensions.Localization.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.Extensions.Localization.Abstractions.dll": {}
+        }
+      },
       "Microsoft.Extensions.Logging/5.0.0": {
         "type": "package",
         "dependencies": {
@@ -582,6 +606,30 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.FileSystemGlobbing.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Localization/5.0.8": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Localization.Abstractions": "5.0.8",
+          "Microsoft.Extensions.Logging.Abstractions": "5.0.0",
+          "Microsoft.Extensions.Options": "5.0.0"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.Extensions.Localization.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.Extensions.Localization.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Localization.Abstractions/5.0.8": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Microsoft.Extensions.Localization.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.Extensions.Localization.Abstractions.dll": {}
         }
       },
       "Microsoft.Extensions.Logging/5.0.0": {
@@ -1073,6 +1121,44 @@
         "version.txt"
       ]
     },
+    "Microsoft.Extensions.Localization/5.0.8": {
+      "sha512": "BVhrZbV/SV1THU8QpE7RIz1DVLr8hLXUmQ/3TUERkLnfcGcZX/hYKgY9O7JxKQRawXihqBma5C6IHf6+0Dmcew==",
+      "type": "package",
+      "path": "microsoft.extensions.localization/5.0.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Localization.dll",
+        "lib/net461/Microsoft.Extensions.Localization.xml",
+        "lib/net5.0/Microsoft.Extensions.Localization.dll",
+        "lib/net5.0/Microsoft.Extensions.Localization.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Localization.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Localization.xml",
+        "microsoft.extensions.localization.5.0.8.nupkg.sha512",
+        "microsoft.extensions.localization.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Localization.Abstractions/5.0.8": {
+      "sha512": "1aLVqVMq+t1hJCKMm24iokUYpIvL//rrxHpyXNVJDB0nnBDsY6RBl9BtFesbMTOT5W+3cjoSpq18juCyQDaIzA==",
+      "type": "package",
+      "path": "microsoft.extensions.localization.abstractions/5.0.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Localization.Abstractions.dll",
+        "lib/net461/Microsoft.Extensions.Localization.Abstractions.xml",
+        "lib/net5.0/Microsoft.Extensions.Localization.Abstractions.dll",
+        "lib/net5.0/Microsoft.Extensions.Localization.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Localization.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Localization.Abstractions.xml",
+        "microsoft.extensions.localization.abstractions.5.0.8.nupkg.sha512",
+        "microsoft.extensions.localization.abstractions.nuspec"
+      ]
+    },
     "Microsoft.Extensions.Logging/5.0.0": {
       "sha512": "MgOwK6tPzB6YNH21wssJcw/2MKwee8b2gI7SllYfn6rvTpIrVvVS5HAjSU2vqSku1fwqRvWP0MdIi14qjd93Aw==",
       "type": "package",
@@ -1304,6 +1390,7 @@
       "Microsoft.AspNetCore.Components.WebAssembly >= 5.0.8",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 5.0.8",
       "Microsoft.AspNetCore.WebUtilities >= 2.2.0",
+      "Microsoft.Extensions.Localization >= 5.0.8",
       "System.Net.Http.Json >= 5.0.0"
     ]
   },
@@ -1358,6 +1445,10 @@
           "Microsoft.AspNetCore.WebUtilities": {
             "target": "Package",
             "version": "[2.2.0, )"
+          },
+          "Microsoft.Extensions.Localization": {
+            "target": "Package",
+            "version": "[5.0.8, )"
           },
           "System.Net.Http.Json": {
             "target": "Package",

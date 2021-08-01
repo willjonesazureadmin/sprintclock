@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0G7xBOTAG6PUSOZuqoTer36I79PJchJRTlWv4CDz3QADyqCza4b6PI+p3y0vzvClKCwVAc/ZLsmi/Fp5wGTAUA==",
+  "dgSpecHash": "i63n0ARXRCtgJvqogFvKuw6jlCRlLJwiV/XrSFxgPsO+MzAQq5ScfNP0gelXEobafkqxvDQ9e5uEIdHdDWRCGw==",
   "success": true,
   "projectFilePath": "C:\\Users\\wjones\\source\\repos\\ticktocksprintclock\\ticktocksprintclock.csproj",
   "expectedPackageFiles": [
@@ -23,6 +23,8 @@
     "C:\\Users\\wjones\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\5.0.0\\microsoft.extensions.fileproviders.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\wjones\\.nuget\\packages\\microsoft.extensions.fileproviders.physical\\5.0.0\\microsoft.extensions.fileproviders.physical.5.0.0.nupkg.sha512",
     "C:\\Users\\wjones\\.nuget\\packages\\microsoft.extensions.filesystemglobbing\\5.0.0\\microsoft.extensions.filesystemglobbing.5.0.0.nupkg.sha512",
+    "C:\\Users\\wjones\\.nuget\\packages\\microsoft.extensions.localization\\5.0.8\\microsoft.extensions.localization.5.0.8.nupkg.sha512",
+    "C:\\Users\\wjones\\.nuget\\packages\\microsoft.extensions.localization.abstractions\\5.0.8\\microsoft.extensions.localization.abstractions.5.0.8.nupkg.sha512",
     "C:\\Users\\wjones\\.nuget\\packages\\microsoft.extensions.logging\\5.0.0\\microsoft.extensions.logging.5.0.0.nupkg.sha512",
     "C:\\Users\\wjones\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\wjones\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",

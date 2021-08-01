@@ -22,7 +22,8 @@
                         _sprintClock.Seconds)</h2>
                     <h2>Days : Hrs : Mins : Sec</h2>
                 </div>
-                <div class="card-footer">approx. @string.Format("{0:N0}",_workingHoursLeftInSprint) working hours remaining</div>
+                <div class="card-footer">approx. @string.Format("{0:N0}",_workingHoursLeftInSprint) working hours
+                    remaining</div>
             </div>
         </div>
         <div class="col-lg-3">
@@ -89,9 +90,23 @@
                         </div>
                     </div>
                 </form>
-                <button type="button" class="btn btn-warning" @onclick="btnAdvanced">Advanced Options</button>
+
             </div>
         </div>
+        <div class="row mt-2">
+            <div class="col-md-1 bg-light mx-auto">
+                <button type="button" class="btn btn-primary btn-lg btn-block" @onclick="btnGenerateLink">Generate
+                    Link</button>
+            </div>
+        </div>
+        @if (showLink == true)
+        {
+            <div class="row mt-10">
+                <div class="col-md-1 bg-light mx-auto">
+                        <input type="text" class="form-control" readonly @bind="_link">
+                </div>
+            </div>
+        }
     }
     else
     {
@@ -103,6 +118,7 @@
     }
     @if (showAdvanced == true)
     {
+        <button type="button" class="btn btn-warning" @onclick="btnAdvanced">Advanced Options</button>
         <div class="row mt-2">
             <div class="col-lg-10 mx-auto bg-light">
                 <div class="form-group">
@@ -145,6 +161,8 @@
 
     private int _workingDaysInWeek = 5;
 
+    private string _link;
+
     private DateTime _projectStartDate;
     private DateTime _projectEndDate;
     private DateTime _sprintStartDate;
@@ -155,6 +173,8 @@
 
     private bool showEdit;
     private bool showAdvanced;
+
+    private bool showLink;
 
 
     protected override void OnInitialized()
@@ -209,12 +229,18 @@
         _projectEndDate = _projectStartDate.AddDays(_sprintLength * _numberOfSprints);
         _daysLeftInProject = (_projectEndDate - DateTime.Now).Days;
         _workingDayLeftInProject = ((_projectEndDate - DateTime.Now).Days / 7) * _workingDaysInWeek;
-        _workingHoursLeftInSprint = ((((_sprintEndDate - DateTime.Now).TotalHours) / 24 ) * _workingHoursInDay);
+        _workingHoursLeftInSprint = ((((_sprintEndDate - DateTime.Now).TotalHours) / 24) * _workingHoursInDay);
     }
 
     private void btnEdit()
     {
         showEdit = true;
+        StateHasChanged();
+    }
+
+    private void btnGenerateLink()
+    {
+        showLink = true;
         StateHasChanged();
     }
 

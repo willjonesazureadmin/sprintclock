@@ -627,3 +627,9 @@ C:\Users\wjones\source\repos\ticktocksprintclock\obj\Debug\net5.0\ticktocksprint
 C:\Users\wjones\source\repos\ticktocksprintclock\obj\Debug\net5.0\ticktocksprintclock.dll
 C:\Users\wjones\source\repos\ticktocksprintclock\obj\Debug\net5.0\ref\ticktocksprintclock.dll
 C:\Users\wjones\source\repos\ticktocksprintclock\obj\Debug\net5.0\ticktocksprintclock.pdb
+C:\Users\wjones\source\repos\ticktocksprintclock\bin\Debug\net5.0\wwwroot\_framework\Microsoft.Extensions.Localization.dll.gz
+C:\Users\wjones\source\repos\ticktocksprintclock\bin\Debug\net5.0\wwwroot\_framework\Microsoft.Extensions.Localization.Abstractions.dll.gz
+C:\Users\wjones\source\repos\ticktocksprintclock\bin\Debug\net5.0\wwwroot\_framework\Microsoft.Extensions.Localization.dll
+C:\Users\wjones\source\repos\ticktocksprintclock\bin\Debug\net5.0\wwwroot\_framework\Microsoft.Extensions.Localization.Abstractions.dll
+C:\Users\wjones\source\repos\ticktocksprintclock\obj\Debug\net5.0\build-gz\okKYPg4d.gz
+C:\Users\wjones\source\repos\ticktocksprintclock\obj\Debug\net5.0\build-gz\jYYeluar.gz

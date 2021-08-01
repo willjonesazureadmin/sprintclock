@@ -53,6 +53,10 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
+            "Microsoft.Extensions.Localization": {
+              "target": "Package",
+              "version": "[5.0.8, )"
+            },
             "System.Net.Http.Json": {
               "target": "Package",
               "version": "[5.0.0, )"
