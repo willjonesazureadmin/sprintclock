@@ -101,9 +101,9 @@
         </div>
         @if (showLink == true)
         {
-            <div class="row mt-10">
-                <div class="col-md-1 bg-light mx-auto">
-                        <input type="text" class="form-control" readonly @bind="_link">
+            <div class="row mt-2">
+                <div class="col-md-8 bg-light mx-auto">
+                    <input type="text" class="form-control" readonly @bind="_link">
                 </div>
             </div>
         }
@@ -199,6 +199,16 @@
             int.TryParse(c, out var valueOfInt);
             _numberOfSprints = valueOfInt;
         }
+        if (queryStrings.TryGetValue("hoursinday", out var e))
+        {
+            int.TryParse(e, out var valueOfInt);
+            _workingHoursInDay = valueOfInt;
+        }
+        if (queryStrings.TryGetValue("daysinweek", out var f))
+        {
+            int.TryParse(f, out var valueOfInt);
+            _workingDaysInWeek = valueOfInt;
+        }
         if (queryStrings.TryGetValue("startdate", out var d))
         {
             DateTime.TryParse(d, out var valueOfDate);
@@ -241,6 +251,14 @@
     private void btnGenerateLink()
     {
         showLink = true;
+        var u = NavManager.BaseUri;
+        u = QueryHelpers.AddQueryString(u, "name", _projectName);
+        u = QueryHelpers.AddQueryString(u, "sprintLength", _sprintLength.ToString());
+        u = QueryHelpers.AddQueryString(u, "numberofsprints", _numberOfSprints.ToString());
+        u = QueryHelpers.AddQueryString(u, "startdate", _projectStartDate.ToString());
+        u = QueryHelpers.AddQueryString(u, "hoursinday", _workingHoursInDay.ToString());
+        u = QueryHelpers.AddQueryString(u, "daysinweek", _workingDaysInWeek.ToString());
+        _link = u;
         StateHasChanged();
     }
 

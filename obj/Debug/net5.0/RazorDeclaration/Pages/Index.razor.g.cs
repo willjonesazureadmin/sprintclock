@@ -13,77 +13,77 @@ namespace ticktocksprintclock.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "c:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
+#line 1 "C:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "c:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
+#line 2 "C:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
 using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "c:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
+#line 3 "C:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "c:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
+#line 4 "C:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "c:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
+#line 5 "C:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "c:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
+#line 6 "C:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "c:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
+#line 7 "C:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
 using Microsoft.AspNetCore.Components.WebAssembly.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "c:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
+#line 8 "C:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "c:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
+#line 9 "C:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
 using ticktocksprintclock;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "c:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
+#line 10 "C:\Users\wjones\source\repos\ticktocksprintclock\_Imports.razor"
 using ticktocksprintclock.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "c:\Users\wjones\source\repos\ticktocksprintclock\Pages\Index.razor"
+#line 2 "C:\Users\wjones\source\repos\ticktocksprintclock\Pages\Index.razor"
 using Microsoft.AspNetCore.WebUtilities;
 
 #line default
@@ -98,7 +98,7 @@ using Microsoft.AspNetCore.WebUtilities;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 149 "c:\Users\wjones\source\repos\ticktocksprintclock\Pages\Index.razor"
+#line 149 "C:\Users\wjones\source\repos\ticktocksprintclock\Pages\Index.razor"
        
 
     private string _projectName = "My Project";
@@ -152,6 +152,16 @@ using Microsoft.AspNetCore.WebUtilities;
             int.TryParse(c, out var valueOfInt);
             _numberOfSprints = valueOfInt;
         }
+        if (queryStrings.TryGetValue("hoursinday", out var e))
+        {
+            int.TryParse(e, out var valueOfInt);
+            _workingHoursInDay = valueOfInt;
+        }
+        if (queryStrings.TryGetValue("daysinweek", out var f))
+        {
+            int.TryParse(f, out var valueOfInt);
+            _workingDaysInWeek = valueOfInt;
+        }
         if (queryStrings.TryGetValue("startdate", out var d))
         {
             DateTime.TryParse(d, out var valueOfDate);
@@ -194,8 +204,15 @@ using Microsoft.AspNetCore.WebUtilities;
     private void btnGenerateLink()
     {
         showLink = true;
+        var u = NavManager.BaseUri;
+        u = QueryHelpers.AddQueryString(u, "name", _projectName);
+        u = QueryHelpers.AddQueryString(u, "sprintLength", _sprintLength.ToString());
+        u = QueryHelpers.AddQueryString(u, "numberofsprints", _numberOfSprints.ToString());
+        u = QueryHelpers.AddQueryString(u, "startdate", _projectStartDate.ToString());
+        u = QueryHelpers.AddQueryString(u, "hoursinday", _workingHoursInDay.ToString());
+        u = QueryHelpers.AddQueryString(u, "daysinweek", _workingDaysInWeek.ToString());
+        _link = u;
         StateHasChanged();
-
     }
 
     private void btnRecalculate()
